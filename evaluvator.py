@@ -31,7 +31,6 @@ import re
 
 from openai import OpenAI
 import os
-from routes import app
 import os
 import requests
 from openai import OpenAI
