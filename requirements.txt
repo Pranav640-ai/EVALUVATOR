@@ -1,8 +1,9 @@
 flask
+gunicorn
 langchain
 langchain-core
-langchain-community
-openai
+langchain-openai
 langdetect
 requests
-python-dotenv
+pydantic
+tiktoken
