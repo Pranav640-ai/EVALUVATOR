@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from evaluvator import run_dynamic_evaluation   # Import your logic
+<<<<<<< HEAD
 from quiz_generator_full import generate_quiz_from_text
+=======
+>>>>>>> c8741b9a31253a003073fe93c1db337cca8d0cae
 
 app = Flask(__name__)
 CORS(app)  # Allow frontend requests
@@ -29,6 +32,7 @@ def evaluate():
         result = run_dynamic_evaluation(input_content, extra_pillars)
 
         return jsonify(result)
+<<<<<<< HEAD
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -44,6 +48,8 @@ def generate_quiz():
 
         return jsonify(result)
 
+=======
+>>>>>>> c8741b9a31253a003073fe93c1db337cca8d0cae
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

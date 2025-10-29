@@ -1,8 +1,11 @@
-flask
+Flask
+flask-cors
+gunicorn
 langchain
+python-dotenv
 langchain-core
-langchain-community
-openai
+langchain-openai
 langdetect
 requests
-python-dotenv
+pydantic
+tiktoken
