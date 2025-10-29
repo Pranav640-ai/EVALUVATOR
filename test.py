@@ -8,5 +8,5 @@ payload = {
     ]
 }
 
-res = requests.post("http://127.0.0.1:5000/evaluate", json=payload)
+res = requests.post("https://evaluvator.onrender.com/evaluate", json=payload)
 print(res.json())

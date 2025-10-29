@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from evaluvator import run_dynamic_evaluation   # Import your logic
+from quiz_generator_full import generate_quiz_from_text
 
 app = Flask(__name__)
 CORS(app)  # Allow frontend requests
@@ -31,6 +32,20 @@ def evaluate():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/generate-quiz', methods=['POST'])
+def generate_quiz():
+    try:
+        data = request.get_json()
+        if not data or "text" not in data:
+            return jsonify({"error": "Missing 'text' in request body"}), 400
+
+        text = data["text"]
+        result = generate_quiz_from_text(text)
+
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
