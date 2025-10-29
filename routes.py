@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from evaluvator import run_dynamic_evaluation
+from evaluvator import run_dynamic_evaluation   # Import your logic
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend access
+CORS(app)  # Allow frontend requests
 
 @app.route('/')
 def home():
@@ -16,17 +16,6 @@ def home():
 
 @app.route('/evaluate', methods=['POST'])
 def evaluate():
-    """
-    POST endpoint to evaluate presentation content.
-    Expected JSON structure:
-    {
-        "input_content": "Your presentation text here",
-        "extra_pillars": [
-            {"Pillar_Title": "New Pillar 1", "Critique": "Your critique"},
-            {"Pillar_Title": "New Pillar 2", "Critique": "Another one"}
-        ]
-    }
-    """
     try:
         data = request.get_json()
 
@@ -39,10 +28,9 @@ def evaluate():
         result = run_dynamic_evaluation(input_content, extra_pillars)
 
         return jsonify(result)
-
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
