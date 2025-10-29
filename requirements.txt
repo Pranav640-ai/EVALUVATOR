@@ -1,0 +1,8 @@
+flask
+langchain
+langchain-core
+langchain-community
+openai
+langdetect
+requests
+python-dotenv
